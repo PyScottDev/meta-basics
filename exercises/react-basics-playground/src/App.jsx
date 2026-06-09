@@ -1,19 +1,34 @@
-import { useState } from 'react'
 import './App.css'
-import Fruits from './lab-7-managing-state/Fruits'
-import FruitsCounter from './lab-7-managing-state/FruitsCounter'
+import DessertsList from './lab-11-basic-list-component/DessertsList'
+
+const desserts = [
+  {
+    name: 'Chocolate Cake',
+    calories: 400,
+    createdAt: '2022-09-01',
+  },
+  {
+    name: 'Ice Cream',
+    calories: 200,
+    createdAt: '2022-01-02',
+  },
+  {
+    name: 'Tiramisu',
+    calories: 300,
+    createdAt: '2021-10-03',
+  },
+  {
+    name: 'Cheesecake',
+    calories: 600,
+    createdAt: '2022-01-04',
+  },
+]
 
 function App() {
-  const [fruits] = useState([
-    { fruitName: 'apple', id: 1 },
-    { fruitName: 'apple', id: 2 },
-    { fruitName: 'plum', id: 3 },
-  ])
   return (
-    <main className="App">
-      <h1>Where should the state go?</h1>
-      <Fruits fruits={fruits}/>
-      <FruitsCounter fruits={fruits}/>
+    <main>
+      <h1>Little Lemon Desserts</h1>
+      <DessertsList data={desserts} />
     </main>
   )
 }
