@@ -1,103 +1,36 @@
-import { useState, useRef } from "react";
-import "./App.css";
+import './App.css'
+import DessertsList from './lab-11-basic-list-component/DessertsList'
 
+const desserts = [
+  {
+    name: 'Chocolate Cake',
+    calories: 400,
+    createdAt: '2022-09-01',
+  },
+  {
+    name: 'Ice Cream',
+    calories: 200,
+    createdAt: '2022-01-02',
+  },
+  {
+    name: 'Tiramisu',
+    calories: 300,
+    createdAt: '2021-10-03',
+  },
+  {
+    name: 'Cheesecake',
+    calories: 600,
+    createdAt: '2022-01-04',
+  },
+]
 
 function App() {
-   const inputRef = useRef(null);
-   const resultRef = useRef(null);
-   const [result, setResult] = useState(0);
-
-
-   function plus(e) {
-       e.preventDefault();
-       const inputVal = inputRef.current.value;
-       const newResult = result + Number(inputVal);
-       setResult(newResult);
-   }
-/*
-NOTE:
-
-
-1. Use the same approach as the plus() function to implement:
-  - minus()
-  - times()
-  - divide()
-
-
-2. The following functions work differently:
-  - resetInput(): clear the input field using inputRef
-  - resetResult(): reset the result state to 0
-*/
-
-
- function minus(e) {
-   // TODO: // Add the code for the minus function
-      e.preventDefault();
-      const inputVal = inputRef.current.value;
-      const newResult = result - Number(inputVal);
-      setResult(newResult);
- }
-
- function times(e) {
-   // TODO: Add the code for the multiply function
-      e.preventDefault();
-      const inputVal = inputRef.current.value;
-      const newResult = result * Number(inputVal);
-      setResult(newResult);
- }
-
- function divide(e) {
-   // TODO: Add the code to divide the result and handle division by zero
-      e.preventDefault();
-      const inputVal = inputRef.current.value;
-      const number = Number(inputVal);  
-
-      if (number === 0) {
-        alert("You cannot devide by zero");
-        return;
-      }
-
-      const newResult = result / number
-      setResult(newResult);
- }
- function resetInput(e) {
-   // TODO: Add the code for the resetInput function
-      e.preventDefault();
-      inputRef.current.value=""
- }
-
- function resetResult(e) {
-   // TODO: Add the code for the resetResult function
-      e.preventDefault();
-      setResult(0);
- }
-
- return (
-   <div className="App">
-     <div>
-       <h1>Simplest Working Calculator</h1>
-     </div>
-
-
-     <form>
-      
-       <p ref={resultRef}>{result}</p>
-      
-       <input
-         pattern="[0-9]*"
-         ref={inputRef}
-         type="number"
-         placeholder="Type a number"
-       />
-      
-       <button onClick={plus}>add</button>
-       <button onClick={minus}>subtract</button>
-       <button onClick={times}>multiply</button>
-       <button onClick={divide}>divide</button>
-       <button onClick={resetInput}>resetInput</button>
-       <button onClick={resetResult}>resetResult</button>
-     </form>
-   </div>
- );
+  return (
+    <main>
+      <h1>Little Lemon Desserts</h1>
+      <DessertsList data={desserts} />
+    </main>
+  )
 }
-export default App;
+
+export default App
